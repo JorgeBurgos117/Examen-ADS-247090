@@ -1,13 +1,10 @@
 
-package presentacion.ui;
+package src.main.java.presentacion.ui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import presentacion.styles.RoundButton;
 
 public class FrmPrincipal extends JFrame{
     
@@ -19,17 +16,28 @@ public class FrmPrincipal extends JFrame{
     public FrmPrincipal() {
         
         //Establecimiento del frame
-        setLayout(new BoxLayout(this, 1));
-        add(lblTitulo);
+        //setSize(style.dimensionFrame);
+        setSize(720, 480);
+        //getContentPane().setBackground(style.colorBase);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        //setLayout(new BoxLayout(this, 1));
         
         contenido = new PnlMenu(this);
+        contenido.add(lblTitulo);
         add(contenido);
-        
+
+        repaint();
+        setVisible(true);
     }
     
     public void retirarEfectivo() {
         System.out.println("Desplegando menú de retiro de efectivo");
+        remove(contenido);
         contenido = new PnlRetirarEfectivo(this);
+        add(contenido);
+        revalidate();
+        repaint();
     }
     
 }

@@ -1,12 +1,13 @@
 
-package presentacion.ui;
+package src.main.java.presentacion.ui;
+
+import src.main.java.presentacion.styles.RoundButton;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import presentacion.styles.RoundButton;
 
 
 public class PnlMenu extends JPanel{
@@ -17,8 +18,10 @@ public class PnlMenu extends JPanel{
     
     JPanel contenido = new JPanel();
     
-    RoundButton btnEjemplo = new RoundButton("(Botón de ejemplo)");
+    RoundButton btnEjemplo1 = new RoundButton("(Botón de ejemplo)");
+    RoundButton btnEjemplo2 = new RoundButton("(Botón de ejemplo)");
     RoundButton btnRetirarEfectivo = new RoundButton("Retirar efectivo");
+    RoundButton btnEjemplo3 = new RoundButton("(Botón de ejemplo)");
     
     public PnlMenu(FrmPrincipal frame){
         this.frame = frame;
@@ -27,13 +30,17 @@ public class PnlMenu extends JPanel{
         setLayout(new BoxLayout(this, 1));
         add(lblTitulo);
         add(contenido);
-        
-        btnEjemplo.addActionListener(new ActionListener() {
+
+
+        ActionListener l = new ActionListener() {
             @Override
                 public void actionPerformed(ActionEvent e) {
                     System.out.println("Este botón es solo un ejemplo");
                 }
-        });
+        };
+        btnEjemplo1.addActionListener(l);
+        btnEjemplo2.addActionListener(l);
+        btnEjemplo3.addActionListener(l);
         
         btnRetirarEfectivo.addActionListener(new ActionListener() {
             @Override
@@ -42,10 +49,10 @@ public class PnlMenu extends JPanel{
                 }
         });
         
-        contenido.add(btnEjemplo);
-        contenido.add(btnEjemplo);
+        contenido.add(btnEjemplo1);
+        contenido.add(btnEjemplo2);
         contenido.add(btnRetirarEfectivo);
-        contenido.add(btnEjemplo);
+        contenido.add(btnEjemplo3);
         
         
         
@@ -53,5 +60,6 @@ public class PnlMenu extends JPanel{
     
     public void seleccionRetirarEfectivo() {
         System.out.println("Procediendo al retiro de efectivo");
+        frame.retirarEfectivo();
     }
 }

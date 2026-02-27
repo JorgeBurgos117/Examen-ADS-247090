@@ -1,7 +1,8 @@
 
-package com.mycompany.examenads247090;
+package src.main.java.com.mycompany.examenads247090;
 
-import presentacion.ui.FrmPrincipal;
+
+import src.main.java.presentacion.ui.FrmPrincipal;
 
 public class ExamenADS247090 {
 
