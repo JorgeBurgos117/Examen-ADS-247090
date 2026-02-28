@@ -6,7 +6,7 @@ import java.awt.*;
 public class Style {
 
     //Dimensiones
-    public static final int cornerRadius = 15;
+    public static final int cornerRadius = 20;
     public static final int letraSize = 24;
     public static final Dimension dimensionBoton = new Dimension(250, 50);
     public static final int frameX = 1080, frameY = 720;

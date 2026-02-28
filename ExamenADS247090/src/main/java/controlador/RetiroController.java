@@ -4,6 +4,8 @@ import src.main.java.modelo.Cliente;
 import src.main.java.vista.ui.DlgRecibo;
 import src.main.java.vista.ui.PnlRetirarEfectivo;
 
+import javax.swing.*;
+
 public class RetiroController {
 
     private Cliente cliente;
@@ -41,7 +43,8 @@ public class RetiroController {
         double montoTotal = monto + montoComision;
 
         if (montoTotal > cliente.getSaldo()) {
-            System.out.println("Saldo insuficiente.");
+            JOptionPane.showMessageDialog(null,"Saldo insuficiente", "Error", JOptionPane.WARNING_MESSAGE);
+            //System.out.println("Saldo insuficiente.");
             return;
         }
 

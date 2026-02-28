@@ -112,14 +112,11 @@ public class PnlRetirarEfectivo extends JPanel implements ClienteObserver {
         add(acomodo, BorderLayout.WEST);
         add(output, BorderLayout.EAST);
 
-        System.out.println("Calando: En PnlRetirarEefectivo");
         setVisible(true);
         
     }
 
     public void seleccionarMonto(double monto) {
-        System.out.println("Selección: $" + monto);
-
         montoActual = monto;
 
         double comision = 0.1; // mismo 10%

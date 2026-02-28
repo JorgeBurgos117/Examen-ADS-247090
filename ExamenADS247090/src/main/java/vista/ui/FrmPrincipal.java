@@ -47,7 +47,6 @@ public class FrmPrincipal extends JFrame{
     }
     
     public void retirarEfectivo() {
-        System.out.println("Desplegando menú de retiro de efectivo");
         remove(contenido);
         PnlRetirarEfectivo pnlRetirarEfectivo = new PnlRetirarEfectivo(this);
         RetiroController controller = new RetiroController(cliente, pnlRetirarEfectivo);
