@@ -1,5 +1,5 @@
 
-package src.main.java.presentacion.styles;
+package src.main.java.vista.styles;
 
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicButtonUI;
