@@ -5,14 +5,16 @@ import src.main.java.modelo.Cliente;
 import src.main.java.modelo.ClienteObserver;
 import src.main.java.vista.styles.CustomLabel;
 import src.main.java.vista.styles.RoundButton;
+import src.main.java.vista.styles.Style;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class PnlRetirarEfectivo extends JPanel implements ClienteObserver {
-    
+
+    Style style = new Style();
     FrmPrincipal frame;
     
     //Límite hardcodeado para la generación automática de botones
@@ -26,8 +28,11 @@ public class PnlRetirarEfectivo extends JPanel implements ClienteObserver {
     JPanel inputs = new JPanel();
     JScrollPane scroll = new JScrollPane();
     JPanel output = new JPanel();
+    JPanel acomodo = new JPanel();
+    JPanel acomodo2 = new JPanel();
 
     public RoundButton btnRetirar = new RoundButton("Confirmar retiro");
+    RoundButton btnVolver = new RoundButton("Volver");
 
     //Output
     CustomLabel lblEstadoCuenta = new CustomLabel("Estado de cuenta");
@@ -48,10 +53,11 @@ public class PnlRetirarEfectivo extends JPanel implements ClienteObserver {
         
         this.frame = frame;
         setLayout(new BorderLayout());
+        //setLayout(new GridLayout(1, 4));
         
         //Inputs
         inputs.setLayout(new BoxLayout(inputs, BoxLayout.Y_AXIS));
-        inputs.add(Box.createVerticalStrut(30));
+        inputs.add(Box.createVerticalStrut(10));
             //Fábrica de botones
         double j = 0;
         for (int i = 0; i < cantidadBotones; i++) {
@@ -67,6 +73,7 @@ public class PnlRetirarEfectivo extends JPanel implements ClienteObserver {
             });
 
             inputs.add(botones[i]);
+            inputs.add(Box.createRigidArea(new Dimension(0, 10)));
         }
 
         //Output
@@ -87,13 +94,24 @@ public class PnlRetirarEfectivo extends JPanel implements ClienteObserver {
         });
         output.add(btnRetirar);
 
+        btnVolver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                volver();
+            }
+        });
 
         //Setup final
         inputs.repaint();
         scroll.setViewportView(inputs);
-        add(scroll, BorderLayout.WEST);
-        output.repaint();
+
+        acomodo2.add(btnVolver);
+        acomodo.setLayout(new BorderLayout());
+        acomodo.add(acomodo2, BorderLayout.WEST);
+        acomodo.add(scroll, BorderLayout.EAST);
+        add(acomodo, BorderLayout.WEST);
         add(output, BorderLayout.EAST);
+
         System.out.println("Calando: En PnlRetirarEefectivo");
         setVisible(true);
         
@@ -141,6 +159,11 @@ public class PnlRetirarEfectivo extends JPanel implements ClienteObserver {
         saldoFinal = 0;
 
         actualizarDatos();
+    }
+
+    public void volver() {
+        System.out.println("Regresando a menù principal");
+        frame.volverMenu();
     }
 
     

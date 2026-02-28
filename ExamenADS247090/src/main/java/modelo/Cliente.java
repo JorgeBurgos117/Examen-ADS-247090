@@ -23,7 +23,7 @@ public class Cliente {
     }
 
     public String getCuenta() {
-        return cuenta;
+        return "*".repeat(12) + cuenta.substring(11);
     }
 
     public double getSaldo() {

@@ -1,8 +1,6 @@
 
-package src.main.java.com.mycompany.examenads247090;
+package src.main.java.com.mycompany.main;
 
-
-import src.main.java.controlador.RetiroController;
 import src.main.java.modelo.Cliente;
 import src.main.java.vista.ui.FrmPrincipal;
 
@@ -11,7 +9,6 @@ public class ExamenADS247090 {
     public static void main(String[] args) {
 
         Cliente clientePrueba = new Cliente("Jorge Burgos", generarNumero(), 20000);
-        //RetiroController controller = new RetiroController(clientePrueba, panel);
         FrmPrincipal frmPrincipal = new FrmPrincipal(clientePrueba);
         
     }
